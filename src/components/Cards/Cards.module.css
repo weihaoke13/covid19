@@ -12,10 +12,14 @@
 
 .recovered{
     border-bottom: 20px solid rgb(0, 255, 0, 0.5);
-
 }
 
 .deaths{
     border-bottom: 20px solid rgb(255, 0, 0, 0.5);
+}
 
+@media(max-width: 770px){
+    .card{
+        margin: 2% 0 !important;
+    }
 }

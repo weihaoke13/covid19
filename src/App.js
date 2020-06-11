@@ -14,21 +14,25 @@ import styles from './App.module.css';
 
 import {fetchData} from './api';
 
+import coronaImage from './images/covid-2.jpg'
+
+//only class component
 class App extends React.Component{
 
     //pass data to state
     state = {
         //object
+        //initial state
         data:{},
         country:'',
     }
 
     async componentDidMount(){
+        //fetchData is from api 
         const fetchedData = await fetchData();
 
         //populate data
         this.setState({data: fetchedData});
-
         // console.log(data); 
     }
 
@@ -39,6 +43,7 @@ class App extends React.Component{
         console.log(fetchedData);
         // console.log(country);
         //set the state
+        //change the country after switch the country name
         this.setState({data: fetchedData, country: country});
 
 
@@ -50,6 +55,7 @@ class App extends React.Component{
         const{data, country} = this.state;
         return(
             <div className={styles.container}>
+                <img className={styles.image} src={coronaImage} alt='COVID19'></img>
                 {/* passing as props */}
                 <Cards data = {data} />
                 <CountryPicker handleCountryChange={this.handleCountryChange} />

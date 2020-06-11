@@ -3,7 +3,7 @@ import React from 'react';
 import {Card, CardContent, Typography, Grid} from '@material-ui/core';
 
 import styles from './Cards.module.css';
-//looks like loading
+//looks like loading animation
 import CountUp from 'react-countup';
 //link css
 import cs from 'classnames';
