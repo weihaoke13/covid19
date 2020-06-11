@@ -34,21 +34,26 @@ class App extends React.Component{
 
     //handle countrypicker.jsx to save in the state
     handleCountryChange = async (country) => {
-        console.log(country);
         //fetch teh data
+        const fetchedData = await fetchData(country);
+        console.log(fetchedData);
+        // console.log(country);
         //set the state
+        this.setState({data: fetchedData, country: country});
+
+
     }
 
     render(){
         //retreive all the data from the state
 
-        const{data} = this.state;
+        const{data, country} = this.state;
         return(
             <div className={styles.container}>
                 {/* passing as props */}
                 <Cards data = {data} />
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
-                <Chart/>
+                <Chart data={data} country={country}/>
             </div>
         )
     }
